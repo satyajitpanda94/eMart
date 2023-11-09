@@ -1,0 +1,87 @@
+.navbarContainer {
+    height: 60px;
+    min-height: 30px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    background-color: rgb(244, 244, 244);
+}
+
+.navbarLeft {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 17px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.category {
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.cartLogo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.navbarRight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .navbarContainer {
+        flex-direction: column;
+        height: auto;
+        background-color: white;
+    }
+
+    .logo{
+        padding: 10px;
+    }
+
+    .category {
+        padding-left: 40px;
+    }
+
+    .navbarRight {
+        padding: 10px;
+        width: 100%;
+        background-color: rgb(244, 244, 244);
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .navbarLeft{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .category {
+        padding-left: 0;
+    }
+}
