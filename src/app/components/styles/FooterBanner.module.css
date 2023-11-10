@@ -1,0 +1,8 @@
+.footerBannerContainer{
+    width: 100%;
+}
+.footerBannerImage {
+    width: 100%; 
+    height: auto;
+    object-fit: contain;
+}

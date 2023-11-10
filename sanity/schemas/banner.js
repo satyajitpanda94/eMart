@@ -56,5 +56,10 @@ export default {
             title: 'SaleTime',
             type: 'string',
         },
+        {
+            name: 'bannerType',
+            title: 'BannerType',
+            type: 'string',
+        },
     ],
   };
