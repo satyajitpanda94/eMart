@@ -95,3 +95,19 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.footerContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  padding: 20px;
+  text-align: center;
+  gap: 20px;
+}
+.footerContainerAddress{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
