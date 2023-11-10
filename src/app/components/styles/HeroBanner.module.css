@@ -1,0 +1,9 @@
+.heroBannerContainer {
+    width: 100%; 
+}
+
+.heroBannerImage {
+    width: 100%; 
+    height: auto;
+    object-fit: contain;
+}
