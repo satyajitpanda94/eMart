@@ -5,14 +5,11 @@
     justify-content: center;
     align-items: center;
     padding-top: 15px;
-    /* gap: 10px; */
     background-color: rgb(245, 245, 245);
 }
 
 .productContainer{
-    /* flex: 1; */
     width: 260px;
-    /* border: 1px solid black; */
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -28,9 +25,6 @@
     background-color: white;
     border-radius: 10px;
     padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .productImage{
     object-fit: contain;
@@ -40,7 +34,6 @@
 .productDetails{
     padding-top: 10px;
     height: 80px;
-    /* background-color: grey; */
 }
 .productDetailsBottom{
     display: flex;

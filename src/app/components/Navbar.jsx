@@ -3,6 +3,7 @@ import React from 'react'
 import style from './styles/Navbar.module.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import Link from 'next/link'
 
 export default function Navbar() {
     return (
@@ -10,7 +11,9 @@ export default function Navbar() {
             <div className={style.navbarLeft}>
                 <div className={style.logo}>PandaMart</div>
                 <div className={style.category}>
-                    <span>Home</span>
+                    <Link href='/'>
+                        <span>Home</span>
+                    </Link>
                     <span>Men</span>
                     <span>Women</span>
                     <span>Electronics</span>
@@ -18,10 +21,12 @@ export default function Navbar() {
             </div>
             <div className={style.navbarRight}>
                 <span>Orders</span>
-                <div className={style.cartLogo}>
-                    <span>Cart</span>
-                    <AiOutlineShoppingCart size={20} />
-                </div>
+                <Link href='/cart'>
+                    <div className={style.cartLogo}>
+                        <span>Cart</span>
+                        <AiOutlineShoppingCart size={20} />
+                    </div>
+                </Link>
                 <span>Login/Signup</span>
             </div>
             <div className={style.hamburger}>

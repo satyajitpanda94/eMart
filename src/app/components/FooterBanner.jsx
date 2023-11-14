@@ -13,6 +13,7 @@ export default function FooterBanner({ bannerData }) {
                 alt="banner"
                 width={1280}
                 height={450}
+                priority={true}
                 className={style.footerBannerImage}
             />
         </div>

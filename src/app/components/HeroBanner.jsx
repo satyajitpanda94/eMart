@@ -28,6 +28,7 @@ export default function HeroBanner({ bannerData }) {
                                 alt="banner"
                                 width={1280}
                                 height={450}
+                                priority={true}
                                 className={style.heroBannerImage}
                             />
                         </div>
