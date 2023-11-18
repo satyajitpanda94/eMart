@@ -17,6 +17,9 @@ export default function HeroBanner({ bannerData }) {
                 interval={3000}
                 infiniteLoop={true}
                 showThumbs={false}
+                showArrows={true}
+                showStatus={false}
+                stopOnHover={true}
             >
                 {
                     bannerData && bannerData.map(banner => (

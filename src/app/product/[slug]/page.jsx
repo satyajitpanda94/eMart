@@ -7,7 +7,11 @@ import style from './page.module.css'
 import Rating from '@/app/components/Rating';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementQuantity, decrementQuantity, addToCart } from '../../../../lib/CartReducer'
+import {
+    incrementQuantity,
+    decrementQuantity,
+    addToCart
+} from '../../../../lib/CartReducer'
 import ProductFeed from '@/app/components/ProductFeed';
 
 export default function ProductDetails({ params }) {
@@ -16,10 +20,14 @@ export default function ProductDetails({ params }) {
     const [index, setIndex] = useState(0)
     const dispatch = useDispatch()
     const quantity = useSelector((state) => state.cart.quantity)
-    // console.log(quantity)
+    const cartItems = useSelector((state) => state.cart.cartItems)
+    console.log(cartItems)
+    console.log('quantity',quantity)
 
-    // console.log(params.slug)
-    // console.log(relatedProducts)
+
+    const addProductToCart = (product) => {
+        dispatch(addToCart(product))
+    }
 
     useEffect(() => {
         const getData = async (slug) => {
@@ -35,7 +43,6 @@ export default function ProductDetails({ params }) {
         getData(params.slug)
     }, [params.slug])
 
-    // console.log(productDetails)
     return (
         <div>
             <div className={style.productDetailsContainer}>
@@ -102,7 +109,7 @@ export default function ProductDetails({ params }) {
                                     </div>
                                 </div>
                                 <div className={style.button}>
-                                    <button type="button" className={style.addToCart} onClick={() => dispatch(addToCart(productDetails))}>Add to Cart</button>
+                                    <button type="button" className={style.addToCart} onClick={() => addProductToCart(productDetails)}>Add to Cart</button>
                                     <button type="button" className={style.buyNow}>Buy Now</button>
                                 </div>
                             </div>

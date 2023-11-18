@@ -12,7 +12,9 @@ export default function RootLayout({ children }) {
       <body>
         <Provider store={store}>
           <Navbar />
-          {children}
+          <div className='mainContainer'>
+            {children}
+          </div>
           <Footer />
         </Provider>
       </body>

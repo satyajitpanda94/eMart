@@ -7,6 +7,10 @@
     justify-content: space-between;
     font-weight: 500;
     background-color: rgb(244, 244, 244);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
 }
 
 .navbarLeft {
@@ -32,6 +36,21 @@
     display: flex;
     align-items: center;
     gap: 2px;
+    position: relative;
+}
+
+.cartQuantity{
+    height: 18px;
+    width: 18px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    font-size: 14px;
 }
 
 .navbarRight {
