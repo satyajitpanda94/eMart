@@ -11,7 +11,8 @@
     object-fit: contain;
 }
 
-.button {
+.button,
+.placeOrderButton {
     padding: 10px 20px;
     font-size: 1.25rem;
     font-weight: 600;
@@ -23,7 +24,8 @@
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.placeOrderButton:hover {
     transform: scale(1.075, 1.075);
     background-color: tomato;
 }
@@ -31,13 +33,13 @@
 .Cart {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 20px 40px;
+    gap: 2vw;
+    margin: 20px 10px 10px;
 }
 
 .cartItemCards {
-    width: 60%;
-    min-height: 150px;
+    width: 70%;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -47,8 +49,16 @@
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
+.imageContainer{
+    padding-right: 20px;
+}
+
+.cartImage {
+    object-fit: contain;
+}
+
 .orderBottom {
-    padding: 20px;
+    padding: 10px;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
@@ -60,7 +70,6 @@
 .cartItemCard {
     width: 100%;
     display: flex;
-    gap: 20px;
     padding: 10px;
 }
 
@@ -78,9 +87,8 @@
     color: red;
 }
 
-.productPrice{
+.productPrice {
     font-weight: 600;
-    font-size: 18px;
 }
 
 .quantity {
@@ -115,14 +123,18 @@
 
 .remove {
     font-weight: 600;
-    font-size: 14px;
     cursor: pointer;
+    font-size: 14px;
+}
+
+.priceDetailContainer {
+    width: 300px;
 }
 
 .priceDetail {
     padding: 20px;
-    width: 300px;
-    height: 270px;
+    width: 100%;
+    height: auto;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
@@ -143,6 +155,63 @@
 
 .totalPrice {
     margin-top: 10px;
-    padding: 20px 0;
+    padding-top: 20px;
     border-top: 1px solid rgb(202, 202, 202);
+}
+
+@media screen and (max-width: 768px) {
+    .Cart {
+        font-size: 1.5vw;
+    }
+
+    .cartItemCards{
+        width: 70%;
+    }
+
+    .priceDetailContainer{
+        width: 25%;
+    }
+
+    .priceDetail {
+        padding: 2vw;
+    }
+
+    .priceRow,
+    .totalPrice {
+        padding: 1vw 0;
+    }
+
+    .remove {
+        font-size: 1.25vw;
+    }
+
+    .minus,
+    .plus,
+    .num {
+        height: 3vw;
+        width: 3vw;
+    }
+
+    .num {
+        width: 4vw;
+    }
+
+    .orderBottom {
+        padding: 1vw;
+    }
+
+    .placeOrderButton {
+        font-size: 1.5vw;
+    }
+    .imageContainer{
+        width: 15vh;
+        height: auto;
+    }
+    .cartImage {
+        width: 100%;
+        height: 100%;
+    }
+    .placeOrderButton{
+        padding: 0.7vw 1.3vw;
+    }
 }

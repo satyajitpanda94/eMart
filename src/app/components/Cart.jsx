@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Rating from './Rating'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
-import { incrementQuantityInCart, decrementQuantityInCart, removeFromCart,cleanCart } from '../../../lib/CartReducer'
+import { incrementQuantityInCart, decrementQuantityInCart, removeFromCart, cleanCart } from '../../../lib/CartReducer'
 import Link from 'next/link'
 
 export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart }) {
@@ -27,7 +27,7 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
         return totalDeliveryCharges
     }, 0).toFixed(2)
 
-    const grandTotal= (Number(totalPriceOfCart) + Number(totalDeliveryCharge) - Number(totalDiscountedPrice)).toFixed(2)
+    const grandTotal = (Number(totalPriceOfCart) + Number(totalDeliveryCharge) - Number(totalDiscountedPrice)).toFixed(2)
 
     const getDiscountedPrice = (price, discount) => {
         discount = discount.split('%')[0]
@@ -40,15 +40,17 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
                 {
                     cartItems.map((item, index) => (
                         <div key={index} className={style.cartItemCard}>
-                            <Image
-                                src={urlFor(item.image[0]).url()}
-                                alt="cart item"
-                                width={100}
-                                height={150}
-                                placeholder="blur"
-                                blurDataURL={urlFor(item.image[0]).url()}
-                                className={style.emptyCartImage}
-                            />
+                            <div className={style.imageContainer}>
+                                <Image
+                                    src={urlFor(item.image[0]).url()}
+                                    alt="cart item"
+                                    width={100}
+                                    height={150}
+                                    placeholder="blur"
+                                    blurDataURL={urlFor(item.image[0]).url()}
+                                    className={style.cartImage}
+                                />
+                            </div>
                             <div className={style.cartItemDetails}>
                                 <Link href={`/product/${item.slug.current}`}>
                                     <h3 className={style.productName}>{item.name}</h3>
@@ -96,26 +98,28 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
                     ))
                 }
                 <div className={style.orderBottom}>
-                    <button className={style.button} onClick={()=>dispatch(cleanCart())}>Place Order</button>
+                    <button className={style.placeOrderButton} onClick={() => dispatch(cleanCart())}>Place Order</button>
                 </div>
             </div>
-            <div className={style.priceDetail}>
-                <h4>PRICE DETAILS</h4>
-                <div className={style.priceRow}>
-                    <span>Price ({totalCartQuantity} items)</span>
-                    <span>₹{totalPriceOfCart.toFixed(2)}</span>
-                </div>
-                <div className={style.priceRow}>
-                    <span>Discount</span>
-                    <span>-₹{totalDiscountedPrice}</span>
-                </div>
-                <div className={style.priceRow}>
-                    <span>Delivery Charges</span>
-                    <span>₹{totalDeliveryCharge}</span>
-                </div>
-                <div className={style.totalPrice}>
-                    <h4>Total Amount</h4>
-                    <h4>₹{grandTotal}</h4>
+            <div className={style.priceDetailContainer}>
+                <div className={style.priceDetail}>
+                    <h4>PRICE DETAILS</h4>
+                    <div className={style.priceRow}>
+                        <span>Price ({totalCartQuantity} items)</span>
+                        <span>₹{totalPriceOfCart.toFixed(2)}</span>
+                    </div>
+                    <div className={style.priceRow}>
+                        <span>Discount</span>
+                        <span>-₹{totalDiscountedPrice}</span>
+                    </div>
+                    <div className={style.priceRow}>
+                        <span>Delivery Charges</span>
+                        <span>₹{totalDeliveryCharge}</span>
+                    </div>
+                    <div className={style.totalPrice}>
+                        <h4>Total Amount</h4>
+                        <h4>₹{grandTotal}</h4>
+                    </div>
                 </div>
             </div>
         </div >
