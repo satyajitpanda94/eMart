@@ -74,6 +74,15 @@
     gap: 10px;
 }
 
+.productName:hover {
+    color: red;
+}
+
+.productPrice{
+    font-weight: 600;
+    font-size: 18px;
+}
+
 .quantity {
     display: flex;
     align-items: center;

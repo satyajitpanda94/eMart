@@ -21,9 +21,6 @@ export default function ProductDetails({ params }) {
     const dispatch = useDispatch()
     const quantity = useSelector((state) => state.cart.quantity)
     const cartItems = useSelector((state) => state.cart.cartItems)
-    console.log(cartItems)
-    console.log('quantity',quantity)
-
 
     const addProductToCart = (product) => {
         dispatch(addToCart(product))
@@ -85,6 +82,7 @@ export default function ProductDetails({ params }) {
                             <div className={style.productDetailsDesc}>
                                 <h1 className={style.productName}>{productDetails?.name}</h1>
                                 <h2>₹{productDetails?.price}</h2>
+                                {productDetails.discount && <h4>{productDetails.discount} Off</h4>}
                                 <Rating rating={productDetails.rating} color={'red'} />
                                 <h4>Details: </h4>
                                 <p className={style.productDesc}>{productDetails?.details}</p>
