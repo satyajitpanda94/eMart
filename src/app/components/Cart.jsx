@@ -6,12 +6,16 @@ import Image from 'next/image'
 import Rating from './Rating'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
-import { incrementQuantityInCart, decrementQuantityInCart, removeFromCart, cleanCart } from '../../../lib/CartReducer'
+import { incrementQuantityInCart, decrementQuantityInCart, removeFromCart } from '../../../lib/CartReducer'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { addToOrderList } from '../../../lib/PlaceOrderReducer'
 
 export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart }) {
     const dispatch = useDispatch()
-    console.log(totalPriceOfCart)
+    const router = useRouter()
+
+    // console.log(totalPriceOfCart)
     const totalDiscountedPrice = cartItems.reduce((totalDiscount, item) => {
         if (item.discount) {
             const discount = item.discount.split('%')[0]
@@ -32,6 +36,11 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
     const getDiscountedPrice = (price, discount) => {
         discount = discount.split('%')[0]
         return (price - (price * discount) / 100).toFixed(2)
+    }
+
+    const placeOrder = (products) => {
+        dispatch(addToOrderList([...products]))
+        router.push('/placeorder')
     }
 
     return (
@@ -72,6 +81,13 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
                                         }
                                     </span>
                                 </p>
+                                <span>
+                                    Delivery Charge : {
+                                        item.deliveryCharges ?
+                                            `₹${item.deliveryCharges}` :
+                                            'Free'
+                                    }
+                                </span>
                                 <div className={style.quantity}>
                                     <span
                                         className={style.minus}
@@ -98,7 +114,10 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
                     ))
                 }
                 <div className={style.orderBottom}>
-                    <button className={style.placeOrderButton} onClick={() => dispatch(cleanCart())}>Place Order</button>
+                    <button
+                        className={style.placeOrderButton}
+                        onClick={() => placeOrder(cartItems)}
+                    >Place Order</button>
                 </div>
             </div>
             <div className={style.priceDetailContainer}>

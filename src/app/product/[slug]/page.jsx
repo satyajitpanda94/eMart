@@ -13,6 +13,8 @@ import {
     addToCart
 } from '../../../../lib/CartReducer'
 import ProductFeed from '@/app/components/ProductFeed';
+import { useRouter } from 'next/navigation';
+import { addToOrderList } from '../../../../lib/PlaceOrderReducer';
 
 export default function ProductDetails({ params }) {
     const [productDetails, setProductDetails] = useState(null);
@@ -20,10 +22,16 @@ export default function ProductDetails({ params }) {
     const [index, setIndex] = useState(0)
     const dispatch = useDispatch()
     const quantity = useSelector((state) => state.cart.quantity)
-    const cartItems = useSelector((state) => state.cart.cartItems)
+    const router = useRouter()
 
     const addProductToCart = (product) => {
         dispatch(addToCart(product))
+    }
+
+    const placeOrder = (product) => {
+        dispatch(addToOrderList([{ ...product, quantity }]))
+        dispatch(addToCart(product))
+        router.push('/placeorder')
     }
 
     useEffect(() => {
@@ -82,7 +90,17 @@ export default function ProductDetails({ params }) {
                             <div className={style.productDetailsDesc}>
                                 <h1 className={style.productName}>{productDetails?.name}</h1>
                                 <h2>₹{productDetails?.price}</h2>
-                                {productDetails.discount && <h4>{productDetails.discount} Off</h4>}
+                                {
+                                    productDetails.discount &&
+                                    <h4>{productDetails.discount} Off</h4>
+                                }
+                                <span>
+                                    Delivery Charge : {
+                                        productDetails.deliveryCharges ?
+                                            `₹${productDetails.deliveryCharges}` :
+                                            'Free'
+                                    }
+                                </span>
                                 <Rating rating={productDetails.rating} color={'red'} />
                                 <h4>Details: </h4>
                                 <p className={style.productDesc}>{productDetails?.details}</p>
@@ -108,7 +126,7 @@ export default function ProductDetails({ params }) {
                                 </div>
                                 <div className={style.button}>
                                     <button type="button" className={style.addToCart} onClick={() => addProductToCart(productDetails)}>Add to Cart</button>
-                                    <button type="button" className={style.buyNow}>Buy Now</button>
+                                    <button type="button" className={style.buyNow} onClick={() => placeOrder(productDetails)}>Buy Now</button>
                                 </div>
                             </div>
                         </>
