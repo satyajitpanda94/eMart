@@ -1,0 +1,71 @@
+.successPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.orderSuccessMessage {
+    display: flex;
+    width: 60%;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.successMessage,
+.thanksMessage {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.successMessage {
+    color: #c80000;
+    font-size: 2rem;
+    border-right: 2px solid red;
+    padding-right: 20px;
+}
+
+.thanksMessage {
+    color: #00d85a;
+    padding-left: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: none;
+    color: white;
+    background-color: red;
+    transform: scale(1, 1);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .orderSuccessMessage {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .orderSuccessMessage {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .successMessage{
+        border-right: none;
+        padding-right: 0;
+    }
+    .thanksMessage{
+        padding-left: 0;
+    }
+}
