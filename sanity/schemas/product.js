@@ -47,6 +47,11 @@ export default {
         type: 'string',
       },
       { 
+        name: 'deal',
+        title: 'Deal',
+        type: 'string',
+      },
+      { 
         name: 'discount',
         title: 'Discount',
         type: 'string',

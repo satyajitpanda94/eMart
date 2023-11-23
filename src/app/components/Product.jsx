@@ -25,7 +25,13 @@ export default function Product({ product }) {
                 <div className={style.productDetails}>
                     <h4>{product.name}</h4>
                     <div className={style.productDetailsBottom}>
-                        <span>₹{product.price}</span>
+                        <span>
+                             {
+                                product.discount 
+                                ? <span>{product.discount} Off</span>
+                                : <span>₹{product.price}</span>
+                            }
+                        </span>
                         <Rating rating={product.rating} />
                     </div>
                 </div>
