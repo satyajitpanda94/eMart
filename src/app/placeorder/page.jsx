@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 import { removeFromCart } from '../../../lib/CartReducer'
 
 export default function PlaceOrder() {
-    const products = useSelector((state) => state.order.products)
+    const products = useSelector((state) => state.order.ordersToBePlaced)
     const [address, setAddress] = useState('')
     const router = useRouter()
     const dispatch = useDispatch()

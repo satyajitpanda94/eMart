@@ -9,7 +9,6 @@ import Rating from './Rating'
 import Link from 'next/link'
 
 export default function Product({ product }) {
-    // console.log(product)
     return (<>
         <Link href={`/product/${product.slug.current}`}>
             <div className={style.productContainer}>

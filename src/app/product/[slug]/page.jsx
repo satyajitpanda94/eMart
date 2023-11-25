@@ -14,7 +14,7 @@ import {
 } from '../../../../lib/CartReducer'
 import ProductFeed from '@/app/components/ProductFeed';
 import { useRouter } from 'next/navigation';
-import { addToOrderList } from '../../../../lib/PlaceOrderReducer';
+import { addToOrdersList } from '../../../../lib/OrdersReducer';
 
 export default function ProductDetails({ params }) {
     const [productDetails, setProductDetails] = useState(null);
@@ -29,7 +29,7 @@ export default function ProductDetails({ params }) {
     }
 
     const placeOrder = (product) => {
-        dispatch(addToOrderList([{ ...product, quantity }]))
+        dispatch(addToOrdersList([{ ...product, quantity }]))
         dispatch(addToCart(product))
         router.push('/placeorder')
     }

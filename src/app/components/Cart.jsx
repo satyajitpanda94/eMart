@@ -9,13 +9,12 @@ import { useDispatch } from 'react-redux'
 import { incrementQuantityInCart, decrementQuantityInCart, removeFromCart } from '../../../lib/CartReducer'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { addToOrderList } from '../../../lib/PlaceOrderReducer'
+import { addToOrdersList } from '../../../lib/OrdersReducer'
 
 export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart }) {
     const dispatch = useDispatch()
     const router = useRouter()
 
-    // console.log(totalPriceOfCart)
     const totalDiscountedPrice = cartItems.reduce((totalDiscount, item) => {
         if (item.discount) {
             const discount = item.discount.split('%')[0]
@@ -39,7 +38,7 @@ export default function Cart({ cartItems, totalCartQuantity, totalPriceOfCart })
     }
 
     const placeOrder = (products) => {
-        dispatch(addToOrderList([...products]))
+        dispatch(addToOrdersList([...products]))
         router.push('/placeorder')
     }
 

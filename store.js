@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import CartReducer from './lib/CartReducer'
-import PlaceOrderReducer from './lib/PlaceOrderReducer'
+import OrdersReducer from './lib/OrdersReducer'
 
 export default configureStore({
     reducer: {
         cart: CartReducer,
-        order: PlaceOrderReducer
+        order: OrdersReducer
     },
 })

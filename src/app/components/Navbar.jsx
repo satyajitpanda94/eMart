@@ -31,7 +31,9 @@ export default function Navbar() {
                 </div>
             </div>
             <div className={style.navbarRight}>
-                {/* <span>Orders</span> */}
+                <Link href='/orders'>
+                    <span>Orders</span>
+                </Link>
                 <Link href='/cart'>
                     <div className={style.cartLogo}>
                         <span>Cart</span>
@@ -42,7 +44,6 @@ export default function Navbar() {
                         }
                     </div>
                 </Link>
-                {/* <span>Login/Signup</span> */}
             </div>
             <div className={style.hamburger}>
                 <GiHamburgerMenu size={24} />
