@@ -113,7 +113,8 @@
 @media screen and (max-width: 768px) {
 
     .orderDetailsContainer,
-    .priceDetails {
+    .priceDetails,
+    .addressDetails {
         width: 80%;
     }
 }
@@ -121,7 +122,8 @@
 @media screen and (max-width: 430px) {
 
     .orderDetailsContainer,
-    .priceDetails {
+    .priceDetails,
+    .addressDetails {
         width: 100%;
     }
 }
