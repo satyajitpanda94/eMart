@@ -11,42 +11,41 @@ export default function Navbar() {
 
     return (
         <div className={style.navbarContainer}>
-            <div className={style.navbarLeft}>
-                <Link href='/'>
-                    <div className={style.logo}>PandaMart</div>
-                </Link>
-                <div className={style.category}>
+            <div className={style.navbarTop}>
+                <div className={style.navbarTopLeft}>
                     <Link href='/'>
-                        <span>Home</span>
+                        <div className={style.logo}>PandaMart</div>
                     </Link>
-                    <Link href='/products/men'>
-                        <span>Men</span>
+                </div>
+                <div className={style.navbarTopRight}>
+                    <Link href='/orders'>
+                        <span className={style.navbarTopRightItem}>Orders</span>
                     </Link>
-                    <Link href='/products/women'>
-                        <span>Women</span>
-                    </Link>
-                    <Link href='/products/electronics'>
-                        <span>Electronics</span>
+                    <Link href='/cart'>
+                        <div className={style.cartLogo}>
+                            <span>Cart</span>
+                            <AiOutlineShoppingCart size={20} />
+                            {
+                                totalCartQuantity !== 0 &&
+                                <span className={style.cartQuantity}>{totalCartQuantity}</span>
+                            }
+                        </div>
                     </Link>
                 </div>
             </div>
-            <div className={style.navbarRight}>
-                <Link href='/orders'>
-                    <span>Orders</span>
+            <div className={style.navbarBattom}>
+                <Link href='/'>
+                    <span>Home</span>
                 </Link>
-                <Link href='/cart'>
-                    <div className={style.cartLogo}>
-                        <span>Cart</span>
-                        <AiOutlineShoppingCart size={22} />
-                        {
-                            totalCartQuantity !== 0 &&
-                            <span className={style.cartQuantity}>{totalCartQuantity}</span>
-                        }
-                    </div>
+                <Link href='/products/men'>
+                    <span>Men</span>
                 </Link>
-            </div>
-            <div className={style.hamburger}>
-                <GiHamburgerMenu size={24} />
+                <Link href='/products/women'>
+                    <span>Women</span>
+                </Link>
+                <Link href='/products/electronics'>
+                    <span>Electronics</span>
+                </Link>
             </div>
         </div>
     )
